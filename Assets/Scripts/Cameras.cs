@@ -8,7 +8,10 @@ public class Cameras : MonoBehaviour
     public Camera cam1;
     public Camera cam2;
     public Camera cam3;
-
+    public Camera cam4;
+    public Camera cam5;
+    public Camera cam6;
+    public Camera cam7;
     public GameObject camUp;
     public GameObject camDown;
 
@@ -21,6 +24,10 @@ public class Cameras : MonoBehaviour
         cam1.gameObject.SetActive(false);
         cam2.gameObject.SetActive(false);
         cam3.gameObject.SetActive(false);
+        cam4.gameObject.SetActive(false);
+        cam5.gameObject.SetActive(false);
+        cam6.gameObject.SetActive(false);
+        cam7.gameObject.SetActive(false);
 
         camUp.SetActive(true);
         camDown.SetActive(false);
@@ -40,6 +47,10 @@ public class Cameras : MonoBehaviour
             cam1.gameObject.SetActive(true);
             cam2.gameObject.SetActive(false);
             cam3.gameObject.SetActive(false);
+            cam4.gameObject.SetActive(false);
+            cam5.gameObject.SetActive(false);
+            cam6.gameObject.SetActive(false);
+            cam7.gameObject.SetActive(false);
 
             camUp.SetActive(false);
             camDown.SetActive(true);
@@ -56,6 +67,10 @@ public class Cameras : MonoBehaviour
             cam1.gameObject.SetActive(false);
             cam2.gameObject.SetActive(false);
             cam3.gameObject.SetActive(false);
+            cam4.gameObject.SetActive(false);
+            cam5.gameObject.SetActive(false);
+            cam6.gameObject.SetActive(false);
+            cam7.gameObject.SetActive(false);
 
             camUp.SetActive(true);
             camDown.SetActive(false);
@@ -70,6 +85,10 @@ public class Cameras : MonoBehaviour
         cam1.gameObject.SetActive(true);
         cam2.gameObject.SetActive(false);
         cam3.gameObject.SetActive(false);
+        cam4.gameObject.SetActive(false);
+        cam5.gameObject.SetActive(false);
+        cam6.gameObject.SetActive(false);
+        cam7.gameObject.SetActive(false);
     }
 
     public void Cam2()
@@ -78,6 +97,10 @@ public class Cameras : MonoBehaviour
         cam1.gameObject.SetActive(false);
         cam2.gameObject.SetActive(true);
         cam3.gameObject.SetActive(false);
+        cam4.gameObject.SetActive(false);
+        cam5.gameObject.SetActive(false);
+        cam6.gameObject.SetActive(false);
+        cam7.gameObject.SetActive(false);
     }
 
     public void Cam3()
@@ -86,6 +109,58 @@ public class Cameras : MonoBehaviour
         cam1.gameObject.SetActive(false);
         cam2.gameObject.SetActive(false);
         cam3.gameObject.SetActive(true);
+        cam4.gameObject.SetActive(false);
+        cam5.gameObject.SetActive(false);
+        cam6.gameObject.SetActive(false);
+        cam7.gameObject.SetActive(false);
+    }
+
+    public void Cam4()
+    {
+        office.gameObject.SetActive(false);
+        cam1.gameObject.SetActive(false);
+        cam2.gameObject.SetActive(false);
+        cam3.gameObject.SetActive(false);
+        cam4.gameObject.SetActive(true);
+        cam5.gameObject.SetActive(false);
+        cam6.gameObject.SetActive(false);
+        cam7.gameObject.SetActive(false);
+    }
+
+    public void Cam5()
+    {
+        office.gameObject.SetActive(false);
+        cam1.gameObject.SetActive(false);
+        cam2.gameObject.SetActive(false);
+        cam3.gameObject.SetActive(false);
+        cam4.gameObject.SetActive(false);
+        cam5.gameObject.SetActive(true);
+        cam6.gameObject.SetActive(false);
+        cam7.gameObject.SetActive(false);
+    }
+
+    public void Cam6()
+    {
+        office.gameObject.SetActive(false);
+        cam1.gameObject.SetActive(false);
+        cam2.gameObject.SetActive(false);
+        cam3.gameObject.SetActive(false);
+        cam4.gameObject.SetActive(false);
+        cam5.gameObject.SetActive(false);
+        cam6.gameObject.SetActive(true);
+        cam7.gameObject.SetActive(false);
+    }
+
+    public void Cam7()
+    {
+        office.gameObject.SetActive(false);
+        cam1.gameObject.SetActive(false);
+        cam2.gameObject.SetActive(false);
+        cam3.gameObject.SetActive(false);
+        cam4.gameObject.SetActive(false);
+        cam5.gameObject.SetActive(false);
+        cam6.gameObject.SetActive(false);
+        cam7.gameObject.SetActive(true);
     }
 
     IEnumerator CamCD()
