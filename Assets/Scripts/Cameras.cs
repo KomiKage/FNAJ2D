@@ -14,9 +14,13 @@ public class Cameras : MonoBehaviour
     public Camera cam7;
     public GameObject camUp;
     public GameObject camDown;
+    public GameObject Mask;
 
     private bool canFlip = true;
+    private bool canEquip = true;
     private float cameraCooldown = 0.1f;
+
+    public static bool maskUp = false;
 
     void Start()
     {
@@ -39,10 +43,38 @@ public class Cameras : MonoBehaviour
         
     }
 
+    public void MaskSwitch()
+    {
+        if(maskUp == false)
+        {
+            if (canEquip == true)
+            {
+                maskUp = true;
+                Mask.gameObject.SetActive(true);
+                canFlip = false;
+                StartCoroutine(MaskCD());
+            }
+        }
+        
+        if(maskUp == true)
+        {
+            if (canEquip == true)
+            {
+                maskUp = false;
+                Mask.gameObject.SetActive(false);
+                canFlip = true;
+                StartCoroutine(MaskCD());
+            }
+        }
+    }
+
+
     public void CamUp()
     {
         if(canFlip == true)
         {
+            canEquip = false;
+
             office.gameObject.SetActive(false);
             cam1.gameObject.SetActive(true);
             cam2.gameObject.SetActive(false);
@@ -63,6 +95,8 @@ public class Cameras : MonoBehaviour
     {
         if(canFlip == true)
         {
+            canEquip = true;
+
             office.gameObject.SetActive(true);
             cam1.gameObject.SetActive(false);
             cam2.gameObject.SetActive(false);
@@ -168,5 +202,12 @@ public class Cameras : MonoBehaviour
         canFlip = false;
         yield return new WaitForSeconds(cameraCooldown);
         canFlip = true;
+    }
+
+    IEnumerator MaskCD()
+    {
+        canEquip = false;
+        yield return new WaitForSeconds(cameraCooldown);
+        canEquip = true;
     }
 }
