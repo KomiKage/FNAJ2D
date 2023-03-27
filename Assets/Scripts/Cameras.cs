@@ -16,6 +16,10 @@ public class Cameras : MonoBehaviour
     public GameObject camDown;
     public GameObject Mask;
 
+    private int lastActive;
+
+    private List<Camera> CameraList = new List<Camera>();
+
     private bool canFlip = true;
     private bool canEquip = true;
     private float cameraCooldown = 0.1f;
@@ -24,6 +28,15 @@ public class Cameras : MonoBehaviour
 
     void Start()
     {
+        CameraList.Add(office);
+        CameraList.Add(cam1);
+        CameraList.Add(cam2);
+        CameraList.Add(cam3);
+        CameraList.Add(cam4);
+        CameraList.Add(cam5);
+        CameraList.Add(cam6);
+        CameraList.Add(cam7);
+
         office.gameObject.SetActive(true);
         cam1.gameObject.SetActive(false);
         cam2.gameObject.SetActive(false);
@@ -33,14 +46,20 @@ public class Cameras : MonoBehaviour
         cam6.gameObject.SetActive(false);
         cam7.gameObject.SetActive(false);
 
+        for (var i = 0; i < CameraList.Count; i++)
+        {
+            if(i == 0)
+            {
+                CameraList[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                CameraList[i].gameObject.SetActive(false);
+            }
+        }
+
         camUp.SetActive(true);
         camDown.SetActive(false);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void MaskSwitch()
@@ -75,14 +94,17 @@ public class Cameras : MonoBehaviour
         {
             canEquip = false;
 
-            office.gameObject.SetActive(false);
-            cam1.gameObject.SetActive(true);
-            cam2.gameObject.SetActive(false);
-            cam3.gameObject.SetActive(false);
-            cam4.gameObject.SetActive(false);
-            cam5.gameObject.SetActive(false);
-            cam6.gameObject.SetActive(false);
-            cam7.gameObject.SetActive(false);
+            for (var i = 0; i < CameraList.Count; i++)
+            {
+                if (i == lastActive)
+                {
+                    CameraList[i].gameObject.SetActive(true);
+                }
+                else
+                {
+                    CameraList[i].gameObject.SetActive(false);
+                }
+            }
 
             camUp.SetActive(false);
             camDown.SetActive(true);
@@ -97,14 +119,17 @@ public class Cameras : MonoBehaviour
         {
             canEquip = true;
 
-            office.gameObject.SetActive(true);
-            cam1.gameObject.SetActive(false);
-            cam2.gameObject.SetActive(false);
-            cam3.gameObject.SetActive(false);
-            cam4.gameObject.SetActive(false);
-            cam5.gameObject.SetActive(false);
-            cam6.gameObject.SetActive(false);
-            cam7.gameObject.SetActive(false);
+            for (var i = 0; i < CameraList.Count; i++)
+            {
+                if (i == 0)
+                {
+                    CameraList[i].gameObject.SetActive(true);
+                }
+                else
+                {
+                    CameraList[i].gameObject.SetActive(false);
+                }
+            }
 
             camUp.SetActive(true);
             camDown.SetActive(false);
@@ -115,86 +140,108 @@ public class Cameras : MonoBehaviour
 
     public void Cam1()
     {
-        office.gameObject.SetActive(false);
-        cam1.gameObject.SetActive(true);
-        cam2.gameObject.SetActive(false);
-        cam3.gameObject.SetActive(false);
-        cam4.gameObject.SetActive(false);
-        cam5.gameObject.SetActive(false);
-        cam6.gameObject.SetActive(false);
-        cam7.gameObject.SetActive(false);
+        for (var i = 0; i < CameraList.Count; i++)
+        {
+            if (i == 1)
+            {
+                CameraList[i].gameObject.SetActive(true);
+                lastActive = i;
+            }
+            else
+            {
+                CameraList[i].gameObject.SetActive(false);
+            }
+        }
     }
 
     public void Cam2()
     {
-        office.gameObject.SetActive(false);
-        cam1.gameObject.SetActive(false);
-        cam2.gameObject.SetActive(true);
-        cam3.gameObject.SetActive(false);
-        cam4.gameObject.SetActive(false);
-        cam5.gameObject.SetActive(false);
-        cam6.gameObject.SetActive(false);
-        cam7.gameObject.SetActive(false);
+        for (var i = 0; i < CameraList.Count; i++)
+        {
+            if (i == 2)
+            {
+                CameraList[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                CameraList[i].gameObject.SetActive(false);
+            }
+        }
     }
 
     public void Cam3()
     {
-        office.gameObject.SetActive(false);
-        cam1.gameObject.SetActive(false);
-        cam2.gameObject.SetActive(false);
-        cam3.gameObject.SetActive(true);
-        cam4.gameObject.SetActive(false);
-        cam5.gameObject.SetActive(false);
-        cam6.gameObject.SetActive(false);
-        cam7.gameObject.SetActive(false);
+        for (var i = 0; i < CameraList.Count; i++)
+        {
+            if (i == 3)
+            {
+                CameraList[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                CameraList[i].gameObject.SetActive(false);
+            }
+        }
     }
 
     public void Cam4()
     {
-        office.gameObject.SetActive(false);
-        cam1.gameObject.SetActive(false);
-        cam2.gameObject.SetActive(false);
-        cam3.gameObject.SetActive(false);
-        cam4.gameObject.SetActive(true);
-        cam5.gameObject.SetActive(false);
-        cam6.gameObject.SetActive(false);
-        cam7.gameObject.SetActive(false);
+        for (var i = 0; i < CameraList.Count; i++)
+        {
+            if (i == 4)
+            {
+                CameraList[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                CameraList[i].gameObject.SetActive(false);
+            }
+        }
     }
 
     public void Cam5()
     {
-        office.gameObject.SetActive(false);
-        cam1.gameObject.SetActive(false);
-        cam2.gameObject.SetActive(false);
-        cam3.gameObject.SetActive(false);
-        cam4.gameObject.SetActive(false);
-        cam5.gameObject.SetActive(true);
-        cam6.gameObject.SetActive(false);
-        cam7.gameObject.SetActive(false);
+        for (var i = 0; i < CameraList.Count; i++)
+        {
+            if (i == 5)
+            {
+                CameraList[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                CameraList[i].gameObject.SetActive(false);
+            }
+        }
     }
 
     public void Cam6()
     {
-        office.gameObject.SetActive(false);
-        cam1.gameObject.SetActive(false);
-        cam2.gameObject.SetActive(false);
-        cam3.gameObject.SetActive(false);
-        cam4.gameObject.SetActive(false);
-        cam5.gameObject.SetActive(false);
-        cam6.gameObject.SetActive(true);
-        cam7.gameObject.SetActive(false);
+        for (var i = 0; i < CameraList.Count; i++)
+        {
+            if (i == 6)
+            {
+                CameraList[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                CameraList[i].gameObject.SetActive(false);
+            }
+        }
     }
 
     public void Cam7()
     {
-        office.gameObject.SetActive(false);
-        cam1.gameObject.SetActive(false);
-        cam2.gameObject.SetActive(false);
-        cam3.gameObject.SetActive(false);
-        cam4.gameObject.SetActive(false);
-        cam5.gameObject.SetActive(false);
-        cam6.gameObject.SetActive(false);
-        cam7.gameObject.SetActive(true);
+        for (var i = 0; i < CameraList.Count; i++)
+        {
+            if (i == 7)
+            {
+                CameraList[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                CameraList[i].gameObject.SetActive(false);
+            }
+        }
     }
 
     IEnumerator CamCD()
