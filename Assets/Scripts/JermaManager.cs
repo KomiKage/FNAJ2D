@@ -103,25 +103,84 @@ public class JermaManager : MonoBehaviour
 
     IEnumerator JermaLeftRoute()
     {
-        currentJerma = 4;
+        currentJerma = 12;
         LoadJerma();
 
         yield return new WaitForSeconds(Random.Range(6f, 8f));
+
+        currentJerma = 13;
+        LoadJerma();
+
+        yield return new WaitForSeconds(Random.Range(6f, 8f));
+
+        currentJerma = 14;
+        LoadJerma();
+
+        yield return new WaitForSeconds(Random.Range(6f, 8f));
+
+        currentJerma = 1;
+        LoadJerma();
+
+        yield return new WaitForSeconds(4f);
+        isScaring = true;
+        currentJerma = 0;
+        LoadJerma();
+
+        yield return new WaitForSeconds(3f);
+        isScaring = false;
+        currentJerma = 4;
+        LoadJerma();
     }
 
     IEnumerator JermaRightRoute()
     {
-        currentJerma = 4;
+        currentJerma = 8;
         LoadJerma();
 
         yield return new WaitForSeconds(Random.Range(6f, 8f));
+
+        currentJerma = 9;
+        LoadJerma();
+
+        yield return new WaitForSeconds(Random.Range(8f, 12f));
+
+        currentJerma = 4;
+        LoadJerma();
+
+        yield return new WaitForSeconds(4f);
+        isScaring = true;
+        currentJerma = 0;
+        LoadJerma();
+
+        yield return new WaitForSeconds(3f);
+        isScaring = false;
+        currentJerma = 4;
+        LoadJerma();
     }
 
     IEnumerator JermaMiddleRoute()
     {
-        currentJerma = 4;
+        currentJerma = 10;
         LoadJerma();
 
-        yield return new WaitForSeconds(Random.Range(4f, 6f));
+        yield return new WaitForSeconds(Random.Range(4f, 7f));
+
+        currentJerma = 11;
+        LoadJerma();
+
+        yield return new WaitForSeconds(Random.Range(4f, 7f));
+
+        currentJerma = 3;
+        LoadJerma();
+
+        yield return new WaitForSeconds(4f);
+        isScaring = true;
+        currentJerma = 0;
+        LoadJerma();
+
+        yield return new WaitForSeconds(3f);
+        isScaring = false;
+        currentJerma = 4;
+        LoadJerma();
     }
 }
