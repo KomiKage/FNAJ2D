@@ -22,6 +22,11 @@ public class JermaManager : MonoBehaviour
 
     private List<GameObject> JermaList = new List<GameObject>();
 
+    private int currentJerma = 4;
+    private float random;
+
+    public static bool isScaring = false;
+
     void Start()
     {
         JermaList.Add(JermaMask);
@@ -40,16 +45,83 @@ public class JermaManager : MonoBehaviour
         JermaList.Add(Jerma6);
         JermaList.Add(Jerma7);
 
-        for (var i = 0; i < JermaList.Count; i++)
-        {
-            JermaList[i].SetActive(false);
-        }
-
-        Jerma1p1.SetActive(true);
+        StartCoroutine(JermaWake());
     }
 
-    void Update()
+    private void LoadJerma()
     {
-        
+        for (var i = 0; i < JermaList.Count; i++)
+        {
+            if (i == currentJerma)
+            {
+                JermaList[i].SetActive(true);
+            }
+            else
+            {
+                JermaList[i].SetActive(false);
+            }
+        }
+    }
+
+    IEnumerator JermaWake()
+    {
+        currentJerma = 4;
+        LoadJerma();
+
+        yield return new WaitForSeconds(10f);
+
+        currentJerma = 5;
+        LoadJerma();
+
+        yield return new WaitForSeconds(Random.Range(3f, 6f));
+
+        currentJerma = 6;
+        LoadJerma();
+
+        yield return new WaitForSeconds(Random.Range(3f, 6f));
+
+        currentJerma = 7;
+        LoadJerma();
+
+        yield return new WaitForSeconds(Random.Range(3f, 6f));
+
+        random = Random.Range(1, 3);
+
+        if(random == 1)
+        {
+            StartCoroutine(JermaLeftRoute());
+        }
+        if (random == 2)
+        {
+            StartCoroutine(JermaRightRoute());
+        }
+        if (random == 3)
+        {
+            StartCoroutine(JermaMiddleRoute());
+        }
+    }
+
+    IEnumerator JermaLeftRoute()
+    {
+        currentJerma = 4;
+        LoadJerma();
+
+        yield return new WaitForSeconds(Random.Range(6f, 8f));
+    }
+
+    IEnumerator JermaRightRoute()
+    {
+        currentJerma = 4;
+        LoadJerma();
+
+        yield return new WaitForSeconds(Random.Range(6f, 8f));
+    }
+
+    IEnumerator JermaMiddleRoute()
+    {
+        currentJerma = 4;
+        LoadJerma();
+
+        yield return new WaitForSeconds(Random.Range(4f, 6f));
     }
 }

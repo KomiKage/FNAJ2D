@@ -16,7 +16,7 @@ public class Cameras : MonoBehaviour
     public GameObject camDown;
     public GameObject Mask;
 
-    private int lastActive;
+    private int lastActive = 1;
 
     private List<Camera> CameraList = new List<Camera>();
 
@@ -60,6 +60,14 @@ public class Cameras : MonoBehaviour
 
         camUp.SetActive(true);
         camDown.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if(JermaManager.isScaring == true && maskUp == false)
+        {
+            sceneLoader.Lose();
+        }
     }
 
     public void MaskSwitch()
@@ -161,6 +169,7 @@ public class Cameras : MonoBehaviour
             if (i == 2)
             {
                 CameraList[i].gameObject.SetActive(true);
+                lastActive = i;
             }
             else
             {
@@ -176,6 +185,7 @@ public class Cameras : MonoBehaviour
             if (i == 3)
             {
                 CameraList[i].gameObject.SetActive(true);
+                lastActive = i;
             }
             else
             {
@@ -191,6 +201,7 @@ public class Cameras : MonoBehaviour
             if (i == 4)
             {
                 CameraList[i].gameObject.SetActive(true);
+                lastActive = i;
             }
             else
             {
@@ -206,6 +217,7 @@ public class Cameras : MonoBehaviour
             if (i == 5)
             {
                 CameraList[i].gameObject.SetActive(true);
+                lastActive = i;
             }
             else
             {
@@ -221,6 +233,7 @@ public class Cameras : MonoBehaviour
             if (i == 6)
             {
                 CameraList[i].gameObject.SetActive(true);
+                lastActive = i;
             }
             else
             {
@@ -236,6 +249,7 @@ public class Cameras : MonoBehaviour
             if (i == 7)
             {
                 CameraList[i].gameObject.SetActive(true);
+                lastActive = i;
             }
             else
             {
