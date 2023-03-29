@@ -8,7 +8,7 @@ public class sceneLoader : MonoBehaviour
 {
     Scene currentScene;
 
-    /*private void Start()
+    private void Start()
     {
         currentScene = SceneManager.GetActiveScene();
     }
@@ -16,12 +16,6 @@ public class sceneLoader : MonoBehaviour
     public void loader(int scene)
     {
         SceneManager.LoadSceneAsync(scene);
-    }*/
-
-    private void Start()
-    {
-        SceneManager.LoadScene("MainMenu");
-        currentScene = SceneManager.GetActiveScene();
     }
 
     public void Intermission()

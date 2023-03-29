@@ -259,7 +259,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 503699697}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: a827b66e65266a74897068d6ee76e58b, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 0c25ab39222f9a9439c4b7140bd247a2, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -272,12 +272,14 @@ VideoPlayer:
   m_DataSource: 0
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
-  m_TargetAudioSources: []
-  m_DirectAudioVolumes: []
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
   m_Url: 
-  m_EnabledAudioTracks: 
-  m_DirectAudioMutes: 
-  m_ControlledAudioTrackCount: 0
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
   m_PlayOnAwake: 1
   m_SkipOnDrop: 1
   m_Looping: 1
@@ -780,8 +782,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 290300099}
         m_TargetAssemblyTypeName: sceneLoader, Assembly-CSharp
-        m_MethodName: loader
-        m_Mode: 3
+        m_MethodName: Intermission
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

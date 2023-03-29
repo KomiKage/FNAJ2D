@@ -1,4 +1,4 @@
-    using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,12 +20,15 @@ public class JermaManager : MonoBehaviour
     public GameObject Jerma6;
     public GameObject Jerma7;
 
+    public GameObject JermaScare;
+
     private List<GameObject> JermaList = new List<GameObject>();
 
     private int currentJerma = 4;
     private float random;
 
     public static bool isScaring = false;
+    public static bool gotScared = false;
 
     void Start()
     {
@@ -46,6 +49,19 @@ public class JermaManager : MonoBehaviour
         JermaList.Add(Jerma7);
 
         StartCoroutine(JermaWake());
+    }
+
+    private void Update()
+    {
+        if(gotScared == true)
+        {
+            for (var i = 0; i < JermaList.Count; i++)
+            {
+                JermaList[i].SetActive(false);
+            }
+
+            StartCoroutine(JermaJumpScare());
+        }
     }
 
     private void LoadJerma()
@@ -144,7 +160,7 @@ public class JermaManager : MonoBehaviour
 
         yield return new WaitForSeconds(Random.Range(8f, 12f));
 
-        currentJerma = 4;
+        currentJerma = 3;
         LoadJerma();
 
         yield return new WaitForSeconds(4f);
@@ -170,7 +186,7 @@ public class JermaManager : MonoBehaviour
 
         yield return new WaitForSeconds(Random.Range(4f, 7f));
 
-        currentJerma = 3;
+        currentJerma = 2;
         LoadJerma();
 
         yield return new WaitForSeconds(4f);
@@ -182,5 +198,12 @@ public class JermaManager : MonoBehaviour
         isScaring = false;
         currentJerma = 4;
         LoadJerma();
+    }
+
+    IEnumerator JermaJumpScare()
+    {
+        JermaScare.SetActive(true);
+        yield return new WaitForSeconds(1.2f);
+        sceneLoader.Lose();
     }
 }

@@ -66,7 +66,9 @@ public class Cameras : MonoBehaviour
     {
         if(JermaManager.isScaring == true && maskUp == false)
         {
-            sceneLoader.Lose();
+            JermaManager.gotScared = true;
+            canEquip = false;
+            canFlip = false;
         }
     }
 
