@@ -66,6 +66,7 @@ public class Cameras : MonoBehaviour
     {
         if(JermaManager.isScaring == true && maskUp == false)
         {
+            CamDown();
             canEquip = false;
             canFlip = false;
             JermaManager.gotScared = true;

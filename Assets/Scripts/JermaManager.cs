@@ -48,6 +48,9 @@ public class JermaManager : MonoBehaviour
         JermaList.Add(Jerma6);
         JermaList.Add(Jerma7);
 
+        isScaring = false;
+        gotScared= false;
+
         StartCoroutine(JermaWake());
     }
 
@@ -81,6 +84,7 @@ public class JermaManager : MonoBehaviour
 
     IEnumerator JermaWake()
     {
+        Debug.Log("a mimir");
         currentJerma = 4;
         LoadJerma();
 
@@ -101,7 +105,7 @@ public class JermaManager : MonoBehaviour
 
         yield return new WaitForSeconds(Random.Range(3f, 6f));
 
-        random = Random.Range(1, 3);
+        random = Random.Range(1, 4);
 
         if(random == 1)
         {
@@ -144,8 +148,9 @@ public class JermaManager : MonoBehaviour
 
         yield return new WaitForSeconds(3f);
         isScaring = false;
-        currentJerma = 4;
-        LoadJerma();
+        //currentJerma = 4;
+        //LoadJerma();
+        StartCoroutine(JermaWake());
     }
 
     IEnumerator JermaRightRoute()
@@ -170,8 +175,9 @@ public class JermaManager : MonoBehaviour
 
         yield return new WaitForSeconds(3f);
         isScaring = false;
-        currentJerma = 4;
-        LoadJerma();
+        //currentJerma = 4;
+        //LoadJerma();
+        StartCoroutine(JermaWake());
     }
 
     IEnumerator JermaMiddleRoute()
@@ -196,8 +202,9 @@ public class JermaManager : MonoBehaviour
 
         yield return new WaitForSeconds(3f);
         isScaring = false;
-        currentJerma = 4;
-        LoadJerma();
+        //currentJerma = 4;
+        //LoadJerma();
+        StartCoroutine(JermaWake());
     }
 
     IEnumerator JermaJumpScare()

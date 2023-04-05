@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        timerNumber = 12;
         StartCoroutine(Timer());
     }
 
@@ -26,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator Timer()
     {
-        yield return new WaitForSeconds(40f);
+        yield return new WaitForSeconds(30f);
         
         if(timerNumber == 12)
         {
